@@ -5,6 +5,10 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>KarizmaPlatform.Shop</RootNamespace>
+        <Title>Karizma Shop</Title>
+        <Authors>Karizma Studio</Authors>
+        <Description>Karizma Platform Shop Package</Description>
+        <RepositoryUrl>https://github.com/Karizma-Studio/KarizmaShop</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
