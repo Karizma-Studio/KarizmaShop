@@ -46,6 +46,14 @@ public class KarizmaShopService<TReward>
     {
         return _idMap.GetValueOrDefault(id);
     }
+    
+    /// <summary>
+    /// Returns all packages in this service.
+    /// </summary>
+    public IEnumerable<IShopPackage<TReward>> GetPackages()
+    {
+        return _packages.ToList();
+    }
 
     /// <summary>
     /// Verifies a purchase by creating a new ephemeral verifier object 
