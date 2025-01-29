@@ -12,7 +12,7 @@ namespace KarizmaPlatform.Shop.Services;
 public class KarizmaShopService<TReward>
 {
     private readonly List<IShopPackage<TReward>> _packages = new();
-    private readonly Dictionary<string, IShopPackage<TReward>> _idMap;
+    private Dictionary<string, IShopPackage<TReward>> _idMap = new();
     private readonly KarizmaShopOptions _options;
 
     public KarizmaShopService(
@@ -23,6 +23,23 @@ public class KarizmaShopService<TReward>
         _options = options.Value;
         _idMap = _packages.ToDictionary(p => p.GetId());
     }
+
+    public KarizmaShopService(
+        IOptions<KarizmaShopOptions> options)
+    {
+        _options = options.Value;
+    }
+
+    /// <summary>
+    /// Set the shop packages to use in this service.
+    /// </summary>
+    public void SetPackages(IEnumerable<IShopPackage<TReward>> packages)
+    {
+        _packages.Clear();
+        _packages.AddRange(packages);
+        _idMap = _packages.ToDictionary(p => p.GetId());
+    }
+
 
     /// <summary>
     /// Find a package by SKU and market.
