@@ -12,15 +12,16 @@ namespace KarizmaPlatform.Shop.Services;
 public class KarizmaShopService<TReward>
 {
     private readonly List<IShopPackage<TReward>> _packages = new();
+    private readonly Dictionary<string, IShopPackage<TReward>> _idMap;
     private readonly KarizmaShopOptions _options;
 
     public KarizmaShopService(
         IEnumerable<IShopPackage<TReward>> packages,
         IOptions<KarizmaShopOptions> options)
     {
-        // Could load from DB or another source. Here, just store them in-memory.
         _packages.AddRange(packages);
         _options = options.Value;
+        _idMap = _packages.ToDictionary(p => p.GetId());
     }
 
     /// <summary>
@@ -32,6 +33,15 @@ public class KarizmaShopService<TReward>
         return _packages.FirstOrDefault(p =>
             p.GetSku() == sku &&
             p.GetMarket() == market);
+    }
+
+    /// <summary>
+    /// Find a package by its unique identifier.
+    /// Returns null if not found.
+    /// </summary>
+    public IShopPackage<TReward>? GetPackage(string id)
+    {
+        return _idMap.GetValueOrDefault(id);
     }
 
     /// <summary>

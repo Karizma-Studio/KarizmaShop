@@ -8,7 +8,12 @@ namespace KarizmaPlatform.Shop.Interfaces;
 public interface IShopPackage<TReward>
 {
     /// <summary>
-    /// Returns the unique identifier (SKU) of this package.
+    /// Returns the unique identifier of this package.
+    /// </summary>
+    string GetId();
+    
+    /// <summary>
+    /// Returns the SKU of this package.
     /// </summary>
     string GetSku();
 
