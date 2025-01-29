@@ -12,25 +12,10 @@ namespace KarizmaPlatform.Shop.Application.Services;
 /// <typeparam name="TReward">The typed reward for packages.</typeparam>
 public class KarizmaShopService<TReward>
 {
-    private readonly List<IShopPackage<TReward>> _packages = new();
+    private readonly List<IShopPackage<TReward>> _packages = [];
     private Dictionary<string, IShopPackage<TReward>> _idMap = new();
-    private readonly KarizmaShopOptions _options;
-
-    public KarizmaShopService(
-        IEnumerable<IShopPackage<TReward>> packages,
-        IOptions<KarizmaShopOptions> options)
-    {
-        _packages.AddRange(packages);
-        _options = options.Value;
-        _idMap = _packages.ToDictionary(p => p.GetId());
-    }
-
-    public KarizmaShopService(
-        IOptions<KarizmaShopOptions> options)
-    {
-        _options = options.Value;
-    }
-
+    
+    
     /// <summary>
     /// Set the shop packages to use in this service.
     /// </summary>
