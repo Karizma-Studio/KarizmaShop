@@ -1,4 +1,4 @@
-namespace KarizmaPlatform.Shop.Models;
+namespace KarizmaPlatform.Shop.Application.Models;
 
 /// <summary>
 /// Configuration options for the KarizmaShopService. 

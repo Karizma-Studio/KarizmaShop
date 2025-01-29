@@ -1,7 +1,8 @@
-using KarizmaPlatform.Shop.Interfaces;
-using KarizmaPlatform.Shop.Models;
+using KarizmaPlatform.Shop.Application.Interfaces;
+using KarizmaPlatform.Shop.Application.Models;
+using KarizmaPlatform.Shop.Domain.Interfaces;
 
-namespace KarizmaPlatform.Shop.Verifiers;
+namespace KarizmaPlatform.Shop.Application.Verifiers;
 
 /// <summary>
 /// A Test purchase verifier that always succeeds. 

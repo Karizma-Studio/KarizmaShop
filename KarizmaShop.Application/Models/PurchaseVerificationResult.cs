@@ -1,4 +1,4 @@
-namespace KarizmaPlatform.Shop.Models;
+namespace KarizmaPlatform.Shop.Application.Models;
 
 /// <summary>
 /// Encapsulates the result of a purchase verification attempt.
@@ -9,25 +9,25 @@ public sealed class PurchaseVerificationResult<TReward>
     public bool IsVerified { get; }
     public string? ErrorMessage { get; }
     public int ErrorCode { get; }
-    public TReward? Reward { get; }
+    public TReward[]? Rewards { get; }
 
     private PurchaseVerificationResult(
-        bool isVerified, 
-        string? errorMessage, 
-        int errorCode, 
-        TReward? reward)
+        bool isVerified,
+        string? errorMessage,
+        int errorCode,
+        TReward[]? rewards)
     {
         IsVerified = isVerified;
         ErrorMessage = errorMessage;
         ErrorCode = errorCode;
-        Reward = reward;
+        Rewards = rewards;
     }
 
     /// <summary>
     /// Creates a success result, returning the verified reward.
     /// </summary>
-    public static PurchaseVerificationResult<TReward> Success(TReward reward)
-        => new PurchaseVerificationResult<TReward>(true, null, 0, reward);
+    public static PurchaseVerificationResult<TReward> Success(TReward[] rewards)
+        => new PurchaseVerificationResult<TReward>(true, null, 0, rewards);
 
     /// <summary>
     /// Creates a fail result, returning an error message and code.

@@ -1,8 +1,8 @@
-using KarizmaPlatform.Shop.Models;
-using KarizmaPlatform.Shop.Services;
+using KarizmaPlatform.Shop.Application.Models;
+using KarizmaPlatform.Shop.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace KarizmaPlatform.Shop.Extensions;
+namespace KarizmaPlatform.Shop.Application.Extensions;
 
 /// <summary>
 /// Extension method to register KarizmaShop services in DI.

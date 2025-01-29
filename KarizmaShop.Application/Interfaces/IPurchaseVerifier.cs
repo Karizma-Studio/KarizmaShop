@@ -1,6 +1,7 @@
-using KarizmaPlatform.Shop.Models;
+using KarizmaPlatform.Shop.Application.Models;
+using KarizmaPlatform.Shop.Domain.Interfaces;
 
-namespace KarizmaPlatform.Shop.Interfaces;
+namespace KarizmaPlatform.Shop.Application.Interfaces;
 
 /// <summary>
 /// Interface for verifying a purchase through a specific market (Myket, CafeBazaar, Test, etc.).

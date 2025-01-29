@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarizmaShop", "KarizmaShop.csproj", "{3C1DF9B4-A60D-4437-9C85-8049FB3C6E8D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarizmaShop.Application", "KarizmaShop.Application\KarizmaShop.Application.csproj", "{3C1DF9B4-A60D-4437-9C85-8049FB3C6E8D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarizmaShop.Domain", "KarizmaShop.Domain\KarizmaShop.Domain.csproj", "{08A10411-04CE-42A0-BAFF-48FFC2439178}"
 EndProject

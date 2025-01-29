@@ -1,8 +1,9 @@
-using KarizmaPlatform.Shop.Interfaces;
-using KarizmaPlatform.Shop.Models;
+using KarizmaPlatform.Shop.Application.Interfaces;
+using KarizmaPlatform.Shop.Application.Models;
+using KarizmaPlatform.Shop.Domain.Interfaces;
 using Microsoft.Extensions.Options;
 
-namespace KarizmaPlatform.Shop.Services;
+namespace KarizmaPlatform.Shop.Application.Services;
 
 /// <summary>
 /// Example service to store and retrieve shop packages,

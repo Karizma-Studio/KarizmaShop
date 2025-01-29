@@ -1,4 +1,4 @@
-namespace KarizmaPlatform.Shop.Interfaces;
+namespace KarizmaPlatform.Shop.Domain.Interfaces;
 
 /// <summary>
 /// Represents a generic shop package (item) with a typed reward.
@@ -32,5 +32,5 @@ public interface IShopPackage<TReward>
     /// Returns the typed reward for this package
     /// (e.g., in-game currency, items, time-based bonuses, etc.).
     /// </summary>
-    TReward GetRewards();
+    TReward[] GetRewards();
 }
