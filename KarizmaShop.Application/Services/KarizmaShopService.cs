@@ -9,17 +9,19 @@ namespace KarizmaPlatform.Shop.Application.Services;
 /// Example service to store and retrieve shop packages,
 /// then help with ephemeral verifiers in Approach B.
 /// </summary>
-/// <typeparam name="TReward">The typed reward for packages.</typeparam>
-public class KarizmaShopService<TReward>
+/// <typeparam name="TShopPackage">The typed for packages.</typeparam>
+/// <typeparam name="TReward">The type for rewards.</typeparam>
+public class KarizmaShopService<TShopPackage,TReward>
+where TShopPackage : IShopPackage<TReward>
 {
-    private readonly List<IShopPackage<TReward>> _packages = [];
-    private Dictionary<string, IShopPackage<TReward>> _idMap = new();
+    private readonly List<TShopPackage> _packages = [];
+    private Dictionary<string, TShopPackage> _idMap = new();
     
     
     /// <summary>
     /// Set the shop packages to use in this service.
     /// </summary>
-    public void SetPackages(IEnumerable<IShopPackage<TReward>> packages)
+    public void SetPackages(IEnumerable<TShopPackage> packages)
     {
         _packages.Clear();
         _packages.AddRange(packages);
@@ -31,7 +33,7 @@ public class KarizmaShopService<TReward>
     /// Find a package by SKU and market.
     /// Returns null if not found.
     /// </summary>
-    public IShopPackage<TReward>? GetPackage(string sku, string market)
+    public TShopPackage? GetPackage(string sku, string market)
     {
         return _packages.FirstOrDefault(p =>
             p.GetSku() == sku &&
@@ -42,7 +44,7 @@ public class KarizmaShopService<TReward>
     /// Find a package by its unique identifier.
     /// Returns null if not found.
     /// </summary>
-    public IShopPackage<TReward>? GetPackage(string id)
+    public TShopPackage? GetPackage(string id)
     {
         return _idMap.GetValueOrDefault(id);
     }
@@ -50,7 +52,7 @@ public class KarizmaShopService<TReward>
     /// <summary>
     /// Returns all packages in this service.
     /// </summary>
-    public IEnumerable<IShopPackage<TReward>> GetPackages()
+    public IEnumerable<TShopPackage> GetPackages()
     {
         return _packages.ToList();
     }

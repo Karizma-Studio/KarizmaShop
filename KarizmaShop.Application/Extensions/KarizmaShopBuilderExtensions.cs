@@ -1,5 +1,6 @@
 using KarizmaPlatform.Shop.Application.Models;
 using KarizmaPlatform.Shop.Application.Services;
+using KarizmaPlatform.Shop.Domain.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace KarizmaPlatform.Shop.Application.Extensions;
@@ -16,9 +17,11 @@ public static class KarizmaShopBuilderExtensions
     /// Example usage in Startup/Program.cs:
     /// services.AddKarizmaShop<MyReward>(opts => { opts.UseTestPackages = true; });
     /// </summary>
-    public static IServiceCollection AddKarizmaShop<TReward>(this IServiceCollection services)
+    public static IServiceCollection AddKarizmaShop<TShopPackage, TReward>(this IServiceCollection services)
+        where TShopPackage : IShopPackage<TReward>
+
     {
-        services.AddSingleton<KarizmaShopService<TReward>>();
+        services.AddSingleton<KarizmaShopService<TShopPackage, TReward>>();
         return services;
     }
 }
